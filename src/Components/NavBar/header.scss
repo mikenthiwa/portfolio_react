@@ -1,0 +1,54 @@
+.navbar {
+  overflow: hidden;
+  position: sticky !important;
+  width: 100%;
+  height: 2.5rem;
+  display: grid !important;
+  grid-template-columns: 1fr 2fr;
+
+  .icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .follow-label {
+      color: blue;
+      font-size: 18px;
+      font-family: 'PT Sans', sans-serif;
+    }
+    .icon-text {
+      color: white;
+    }
+    .socialIcon {
+      cursor: pointer;
+    }
+    .socialIcon:hover {
+      transform: scale(1.1);
+    }
+    .icon {
+      color: #505160;
+      cursor: pointer;
+      font-size: 20px;
+      letter-spacing: 1px;
+      font-weight: 500;
+      fill: #fbf9f7;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    overflow: hidden;
+    position: sticky !important;
+    width: 100%;
+    height: 3rem;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .icon-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    align-items: center;
+  }
+}

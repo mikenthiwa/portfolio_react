@@ -28,6 +28,19 @@
           text-align: center;
         }
       }
+      .skillIconCont {
+        display: flex;
+        flex-direction: row;
+        max-width: 25rem;
+
+        .skillType {
+          position: relative;
+          -webkit-animation: skills 5s infinite !important;
+          -webkit-animation-direction: normal !important;
+          animation: skills 5s infinite !important;
+          animation-direction: normal !important;
+        }
+      }
 
       .scroll-down-cont {
         position: absolute;
@@ -101,6 +114,11 @@
     background-color: #4B4345;
     opacity: .1;
   }
+}
+
+@-webkit-keyframes skills {
+  0% {left: 0; color: yellow; top: 0}
+  100% {left: 30rem; top: 0}
 }
 
 @-webkit-keyframes glow {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSortDown } from '@fortawesome/free-solid-svg-icons'
+import { faSortDown } from '@fortawesome/free-solid-svg-icons';
+import { faReact, faNode, faSass } from '@fortawesome/free-brands-svg-icons';
 import NavBar from '../../Components/NavBar/navBar';
 import './home.scss';
 
@@ -17,6 +18,11 @@ class Home extends Component {
   openMail = () => {
     window.location.href='mailto:mike.nthiwa@gmail.com'
   };
+  renderSkillsIcons = (iconType, color) => (
+      <div className='skillType'>
+        <FontAwesomeIcon icon={iconType} size='3x' color={color} />
+      </div>
+  );
 
   renderDescription = (rowContainer, header, content, button) => {
     return (
@@ -55,6 +61,11 @@ class Home extends Component {
         <div className="intro-container">
           <div className="intro-cont">
             <span className="intro">Hey!, I'm Michael, Full Stack Software Engineer</span>
+          </div>
+          <div className='skillIconCont'>
+            {this.renderSkillsIcons(faReact, 'blue')}
+            {this.renderSkillsIcons(faNode, 'green')}
+            {this.renderSkillsIcons(faSass, '#C060DB')}
           </div>
           <div className="row scroll-down-cont" onClick={this.scrollDown}>
             <div className="scrollLabel">Dive deep to learn what I do</div>

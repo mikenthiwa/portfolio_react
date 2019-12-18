@@ -101,7 +101,7 @@ class Home extends Component {
               'middle-row-container',
               'What can I do?',
               'I can design and develop web and mobile applications' +
-              'that can run across various devices using the latest technologies.'
+              ' that can run across various devices using the latest technologies.'
             )
           }
           <div>

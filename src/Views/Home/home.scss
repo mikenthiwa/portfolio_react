@@ -31,14 +31,34 @@
       .skillIconCont {
         display: flex;
         flex-direction: row;
-        max-width: 25rem;
+        width: 30rem;
+        position: relative;
 
-        .skillType {
-          position: relative;
-          -webkit-animation: skills 5s infinite !important;
-          -webkit-animation-direction: normal !important;
-          animation: skills 5s infinite !important;
-          animation-direction: normal !important;
+        .css {
+          position: absolute;
+          animation: skills 5s ease-in-out -11s infinite normal;
+          opacity: .2;
+        }
+        .react {
+          position: absolute;
+          animation: skills 5s ease-in-out -9s infinite normal;
+          opacity: .2;
+        }
+        .node {
+          position: absolute;
+          animation: skills 5s ease-in-out -7s infinite normal;
+        }
+        .sass {
+          position: absolute;
+          animation: skills 5s ease-in-out -5s infinite normal;
+        }
+        .docker {
+          position: absolute;
+          animation: skills 5s ease-in-out -3s infinite normal;
+        }
+        .html5 {
+          position: absolute;
+          animation: skills 5s ease-in-out -1s infinite normal;
         }
       }
 
@@ -116,12 +136,23 @@
   }
 }
 
-@-webkit-keyframes skills {
-  0% {left: 0; color: yellow; top: 0}
-  100% {left: 30rem; top: 0}
+@keyframes skills {
+  0% {opacity: 0.1}
+  5% {opacity: .2}
+  10% { opacity: .4}
+  20% { opacity: .6}
+  30% { opacity: .8}
+  50% { opacity: 1}
+  60% { opacity: .8}
+  70% { opacity: .6}
+  80% { opacity: .4}
+  100% {
+    transform: translateX(30rem);
+    opacity: 0;
+  }
 }
 
-@-webkit-keyframes glow {
+@keyframes glow {
   from {
     color: yellow;
   }
@@ -147,6 +178,11 @@
             align-items: center;
             outline: none;
           }
+        }
+        .skillIconCont{
+          width: 100%;
+          //justify-content: center;
+          margin-left: 20px;
         }
         .scroll-down-cont {
           position: absolute;
@@ -184,6 +220,23 @@
       height: 1px;
       background-color: #4B4345;
       opacity: .1;
+    }
+  }
+  @keyframes skills {
+    0% {opacity: 0.1}
+    5% {opacity: .2}
+    10% { opacity: .4}
+    20% { opacity: .6}
+    30% { opacity: .8}
+    50% { opacity: 1}
+    60% { opacity: .8}
+    70% { opacity: .6}
+    80% { opacity: .4}
+    100% {
+      transform: translateX(17rem);
+      //right: 0;
+      //width: 100%;
+      opacity: 0;
     }
   }
 }

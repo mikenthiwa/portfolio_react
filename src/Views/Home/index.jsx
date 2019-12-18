@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
-import { faReact, faNode, faSass } from '@fortawesome/free-brands-svg-icons';
+import {
+  faReact,
+  faNode,
+  faSass,
+  faDocker,
+  faHtml5,
+  faCss3Alt
+} from '@fortawesome/free-brands-svg-icons';
 import NavBar from '../../Components/NavBar/navBar';
 import './home.scss';
 
@@ -18,8 +25,8 @@ class Home extends Component {
   openMail = () => {
     window.location.href='mailto:mike.nthiwa@gmail.com'
   };
-  renderSkillsIcons = (iconType, color) => (
-      <div className='skillType'>
+  renderSkillsIcons = (iconType, color, skillClass) => (
+      <div className={skillClass}>
         <FontAwesomeIcon icon={iconType} size='3x' color={color} />
       </div>
   );
@@ -63,9 +70,12 @@ class Home extends Component {
             <span className="intro">Hey!, I'm Michael, Full Stack Software Engineer</span>
           </div>
           <div className='skillIconCont'>
-            {this.renderSkillsIcons(faReact, 'blue')}
-            {this.renderSkillsIcons(faNode, 'green')}
-            {this.renderSkillsIcons(faSass, '#C060DB')}
+            {this.renderSkillsIcons(faCss3Alt, '#3FABC0', 'css')}
+            {this.renderSkillsIcons(faReact, 'blue', 'react')}
+            {this.renderSkillsIcons(faNode, 'green', 'node')}
+            {this.renderSkillsIcons(faSass, '#C060DB', 'sass')}
+            {this.renderSkillsIcons(faDocker, 'blue', 'docker')}
+            {this.renderSkillsIcons(faHtml5, '#DD4E31', 'html5')}
           </div>
           <div className="row scroll-down-cont" onClick={this.scrollDown}>
             <div className="scrollLabel">Dive deep to learn what I do</div>

@@ -1,5 +1,17 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #141c3a;
+}
 .home {
   scroll-behavior: smooth;
+
   .home-container {
     background: url("../../Assets/images/homeBackGround6.jpg") no-repeat center center fixed;
     background-size: cover;
@@ -17,15 +29,17 @@
       align-items: center;
       .intro-cont {
         text-align: center;
+        animation: heading 1s ease-in;
         .intro {
           font-family: 'PT Sans', sans-serif;
           font-size: 30px;
-          color: black;
-          font-weight: 500;
+          color: #141c3a;
+          font-weight: 700;
           top: 10rem;
           align-items: center;
           outline: none;
           text-align: center;
+          letter-spacing: 1px;
         }
       }
       .skillIconCont {
@@ -87,53 +101,29 @@
       }
     }
   }
-
   .description-cont {
-    letter-spacing: 1px;
     display: flex;
     flex-direction: column;
+    position: relative;
 
-    .rowContainer {
-      display: flex;
-      flex-direction: column;
-      margin: 0 auto;
+    .my-description {
+      background-color: #7510F7;
+      padding: 100px 20px;
       text-align: center;
-      width: 600px;
-
-      .descriptionHeader {
-        font-weight: 500;
-        font-size: 25px;
-        color: #0ba7e0;
-        margin-bottom: 5px;
-      }
-      .messageMe {
-        text-align: center;
-      }
-    }
-
-    .middle-row-container {
       display: flex;
-      flex-direction: column;
-      width: 600px;
+      justify-content: center;
+    }
+  }
+  .skills-work {
+    display: flex;
+    flex-direction: column;
+  }
 
-      .descriptionHeader {
-        font-weight: 500;
-        font-size: 25px;
-        color: #0ba7e0;
-        margin-bottom: 5px;
-      }
-    }
-    .form {
-      text-align: start;
-      margin: 0 auto;
-    }
-  }
-  .divider {
-    width: 100%;
-    height: 1px;
-    background-color: #4B4345;
-    opacity: .1;
-  }
+}
+
+@keyframes heading {
+  from {margin-top: -30px;}
+  to {margin-top: 0;}
 }
 
 @keyframes skills {
@@ -154,10 +144,12 @@
 
 @keyframes glow {
   from {
+    margin-top: -30px;
     color: yellow;
   }
   to {
     color: green;
+    margin-top: 0;
   }
 }
 
@@ -170,13 +162,13 @@
           text-align: center;
           .intro {
             font-family: 'PT Sans', sans-serif;
-            font-size: 30px;
-            color: black;
-            font-weight: 500;
+            font-size: 20px;
             top: 10rem;
             text-align: center;
             align-items: center;
             outline: none;
+            color: #141c3a;
+            font-weight: 700;
           }
         }
         .skillIconCont{
@@ -233,8 +225,6 @@
     80% { opacity: .4}
     100% {
       transform: translateX(17rem);
-      //right: 0;
-      //width: 100%;
       opacity: 0;
     }
   }

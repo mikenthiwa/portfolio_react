@@ -1,0 +1,28 @@
+.footer-cont {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 5px 0;
+  align-items: center;
+  color: white;
+  justify-content: space-between;
+
+  .icon-cont {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  .copyright-cont {
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 50px;
+    justify-content: space-around;
+
+    .copyright-icon {
+      margin-right: 5px;
+    }
+  }
+}

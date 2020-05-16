@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
+import Projects from "../../Components/Projects";
+import Profile from '../../Assets/images/feeling_proud_qne1.svg';
+import Footer from "../../Components/Footer";
 import {
   faReact,
   faNode,
@@ -41,18 +44,20 @@ class Home extends Component {
         </div>
         <div className="intro-container">
           <div className="intro-cont">
-            <span className="intro">Hey!, I'm Michael, Full Stack Software Engineer</span>
+            <span className="intro">I'm Michael, Full Stack Software Engineer.</span>
           </div>
           <div className='skillIconCont'>
-            {this.renderSkillsIcons(faCss3Alt, '#3FABC0', 'css')}
+            {this.renderSkillsIcons(faCss3Alt, '#3FABC0', 'css anime')}
             {this.renderSkillsIcons(faReact, 'blue', 'react')}
             {this.renderSkillsIcons(faNode, 'green', 'node')}
             {this.renderSkillsIcons(faSass, '#C060DB', 'sass')}
             {this.renderSkillsIcons(faDocker, 'blue', 'docker')}
             {this.renderSkillsIcons(faHtml5, '#DD4E31', 'html5')}
           </div>
+          <div className="avatar-container">
+            <img src={Profile} alt='profile'/>
+          </div>
           <div className="row scroll-down-cont" onClick={this.scrollDown}>
-            <div className="scrollLabel">Dive deep to learn what I do</div>
             <div>
               <FontAwesomeIcon icon={faSortDown} size="2x"  className="scrollDownIcon glow"/>
             </div>
@@ -69,6 +74,12 @@ class Home extends Component {
           </div>
         </div>
       </div>
+        <div className="project-section">
+          <Projects />
+        </div>
+        <div className="footer-section">
+          <Footer />
+        </div>
       </div>
     );
   }

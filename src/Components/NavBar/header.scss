@@ -2,7 +2,7 @@
   overflow: hidden;
   position: sticky !important;
   width: 100%;
-  height: 2.5rem;
+  height: 2.9rem;
   display: grid !important;
   grid-template-columns: 1fr 2fr;
 
@@ -33,6 +33,9 @@
       font-weight: 500;
       fill: #fbf9f7;
     }
+  }
+  .cv-button-cont {
+    text-align: right;
   }
 }
 

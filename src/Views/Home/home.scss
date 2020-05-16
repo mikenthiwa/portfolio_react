@@ -13,7 +13,6 @@
   scroll-behavior: smooth;
 
   .home-container {
-    background: url("../../Assets/images/homeBackGround6.jpg") no-repeat center center fixed;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -21,6 +20,7 @@
     height: 100vh;
     display: grid;
     grid-template-rows: 0.4fr 2fr;
+    position: relative;
 
     .intro-container {
       display: flex;
@@ -31,15 +31,13 @@
         text-align: center;
         animation: heading 1s ease-in;
         .intro {
-          font-family: 'PT Sans', sans-serif;
           font-size: 30px;
           color: #141c3a;
-          font-weight: 700;
           top: 10rem;
           align-items: center;
           outline: none;
           text-align: center;
-          letter-spacing: 1px;
+          letter-spacing: 2px;
         }
       }
       .skillIconCont {
@@ -53,6 +51,7 @@
           animation: skills 5s ease-in-out -11s infinite normal;
           opacity: .2;
         }
+
         .react {
           position: absolute;
           animation: skills 5s ease-in-out -9s infinite normal;
@@ -73,6 +72,20 @@
         .html5 {
           position: absolute;
           animation: skills 5s ease-in-out -1s infinite normal;
+        }
+      }
+      .follow-cont {
+        display: flex;
+        flex-direction: row;
+        cursor: pointer;
+        position: absolute;
+        top: 210px;
+      }
+      .avatar-container {
+        margin-top: 100px;
+
+        img {
+          width: 300px !important;
         }
       }
 
@@ -107,7 +120,7 @@
     position: relative;
 
     .my-description {
-      background-color: #7510F7;
+      background-color: #1E2337;
       padding: 100px 20px;
       text-align: center;
       display: flex;
@@ -117,6 +130,11 @@
   .skills-work {
     display: flex;
     flex-direction: column;
+  }
+
+  .footer-section {
+    margin-top: 50px;
+    background-color: #1E2337;
   }
 
 }
@@ -145,7 +163,7 @@
 @keyframes glow {
   from {
     margin-top: -30px;
-    color: yellow;
+    color: #7510F7;
   }
   to {
     color: green;
@@ -160,15 +178,21 @@
       .intro-container {
         .intro-cont {
           text-align: center;
+          margin-bottom: 20px;
           .intro {
-            font-family: 'PT Sans', sans-serif;
             font-size: 20px;
             top: 10rem;
             text-align: center;
             align-items: center;
             outline: none;
             color: #141c3a;
-            font-weight: 700;
+          }
+
+        }
+        .avatar-container {
+          margin-top: 150px !important;
+          img {
+            width: 250px !important;
           }
         }
         .skillIconCont{
@@ -212,6 +236,10 @@
       background-color: #4B4345;
       opacity: .1;
     }
+  }
+  @keyframes heading {
+    from {margin-top: -10px;}
+    to {margin-top: 0;}
   }
   @keyframes skills {
     0% {opacity: 0.1}

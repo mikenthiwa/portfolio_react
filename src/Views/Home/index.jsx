@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import Projects from "../../Components/Projects";
@@ -17,72 +17,93 @@ import Description from "../../Components/Description";
 import Skills from "../../Components/Skills";
 import './home.scss';
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.myRef = React.createRef();
-  }
+const Home = () => {
 
-  scrollDown = () => {
-    this.myRef.current.scrollIntoView({behavior: "smooth"})
+  const smoothScrollDown = useRef(null);
+
+  const scrollDown = () => {
+    smoothScrollDown.current.scrollIntoView({behavior: "smooth"})
   };
 
+  const renderIntroCont = (className) => {
+    return (
+        <div className={className}>
+          <span className="intro">I'm Michael, Full Stack Software Engineer.</span>
+        </div>
+    )
+  }
 
-  renderSkillsIcons = (iconType, color, skillClass) => (
+  const renderSkillsIcons = (iconType, color, skillClass) => (
       <div className={skillClass}>
         <FontAwesomeIcon icon={iconType} size='3x' color={color} />
       </div>
   );
 
-
-  render(){
+  const renderSKillCardContent = (className, component) => {
     return (
-      <div className="home">
-      <div className="home-container">
-        <div>
-          <NavBar />
+        <div className={className}>
+          {component}
         </div>
-        <div className="intro-container">
-          <div className="intro-cont">
-            <span className="intro">I'm Michael, Full Stack Software Engineer.</span>
-          </div>
-          <div className='skillIconCont'>
-            {this.renderSkillsIcons(faCss3Alt, '#3FABC0', 'css anime')}
-            {this.renderSkillsIcons(faReact, 'blue', 'react')}
-            {this.renderSkillsIcons(faNode, 'green', 'node')}
-            {this.renderSkillsIcons(faSass, '#C060DB', 'sass')}
-            {this.renderSkillsIcons(faDocker, 'blue', 'docker')}
-            {this.renderSkillsIcons(faHtml5, '#DD4E31', 'html5')}
-          </div>
-          <div className="avatar-container">
-            <img src={Profile} alt='profile'/>
-          </div>
-          <div className="row scroll-down-cont" onClick={this.scrollDown}>
-            <div>
-              <FontAwesomeIcon icon={faSortDown} size="2x"  className="scrollDownIcon glow"/>
-            </div>
-          </div>
+    )
+  };
+
+  const renderSkillCont = (className) => {
+    return (
+        <div className={className}>
+          {renderSkillsIcons(faCss3Alt, '#3FABC0', 'css anime')}
+          {renderSkillsIcons(faReact, 'blue', 'react')}
+          {renderSkillsIcons(faNode, 'green', 'node')}
+          {renderSkillsIcons(faSass, '#C060DB', 'sass')}
+          {renderSkillsIcons(faDocker, 'blue', 'docker')}
+          {renderSkillsIcons(faHtml5, '#DD4E31', 'html5')}
         </div>
-      </div>
-      <div className="description-cont" ref={this.myRef}>
-        <div className="my-description">
-          <Description />
-        </div>
-        <div className="skills-work">
-          <div className="skills-sec">
-            <Skills />
-          </div>
-        </div>
-      </div>
-        <div className="project-section">
-          <Projects />
-        </div>
-        <div className="footer-section">
-          <Footer />
-        </div>
-      </div>
-    );
+    )
   }
+
+  const renderAvatarCont = (className, image) => {
+    return (
+      <div className={className}>
+        <img src={image} alt='Profile'/>
+      </div>
+    )
+  }
+
+  const renderSections = (sectionName, classname, component) => {
+    return sectionName === 'description'
+        ? (<div className={classname}>
+              {renderSKillCardContent('my-description', <Description />)}
+              {renderSKillCardContent('skills-work', <Skills />)}
+            </div>
+        )
+        : (<div className={classname}>
+            {component}
+          </div>
+        )
+  };
+
+  const renderScrollDownButton = (className, ref, onclick) => {
+    return (
+        <div className={className} ref={ref} onClick={onclick}>
+          <FontAwesomeIcon icon={faSortDown} size="2x"  className="scrollDownIcon glow"/>
+        </div>
+    )
+  }
+  return (
+    <div className="home">
+    <div className="home-container">
+      {renderSections('navbar', '', <NavBar />)}
+      <div className="intro-container">
+        {renderIntroCont('intro-cont')}
+        {renderSkillCont('skillIconCont')}
+        {renderAvatarCont('avatar-container', Profile)}
+        {renderScrollDownButton('row scroll-down-cont', smoothScrollDown, scrollDown)}
+      </div>
+    </div>
+      {renderSections('description', 'description-cont')}
+      {renderSections('projects', 'project-section', <Projects />)}
+      {renderSections('footer', 'footer-section', <Footer />)}
+    </div>
+  );
 }
 
 export default Home;
